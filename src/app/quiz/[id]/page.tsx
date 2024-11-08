@@ -61,6 +61,7 @@ const Home: NextPage<QuizPageProps> = ({ params }) => {
                 <div key={`q-${question.id}-o-${option.id}`} className="mt-2 flex gap-2">
                   <input
                     type="radio"
+                    id={`q-${question.id}`}
                     name={`q-${question.id}`}
                     value={option.prefix}
                     onChange={event => setSelected(oldSelected => ({
@@ -69,7 +70,7 @@ const Home: NextPage<QuizPageProps> = ({ params }) => {
                       )
                     }
                   />
-                  <label>{option.prefix}) {option.answer}</label>
+                  <label htmlFor={`q-${question.id}`}>{option.prefix}) {option.answer}</label>
                 </div>
               ))}
             </div>
