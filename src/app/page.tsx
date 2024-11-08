@@ -9,8 +9,6 @@ export default function Home() {
           <QuizCard number={2} />
           <QuizCard number={3} />
           <QuizCard number={4} />
-          <QuizCard number={5} />
-          <QuizCard number={6} />
         </ul>
       </nav>
     </div>
