@@ -44,14 +44,22 @@ const Home: NextPage<QuizPageProps> = ({ params }) => {
 
   return (
     <div className="max-w-[1200px] w-[90%] mx-auto py-10"> 
-      <h1 className="text-2xl font-bold">{quiz.title}</h1>
+      <div className="w-full flex justify-between">
+        <h1 className="text-2xl font-bold">{quiz.title}</h1>
+        <button
+          className="bg-zinc-700 px-4 py-2 rounded-lg hover:bg-zinc-800 transition-all"
+          onClick={() => setViewAnswers(oldViewAnswers => !oldViewAnswers)}
+        >
+          Check answers
+        </button>
+      </div>
       <div className="grid grid-cols-2 gap-10">
         {quiz.questions.map((question) => {
           console.log({ selected, question })
 
           return (
             <div key={`q-${id}-q-${question.id}`} className="mt-10">
-              <h2>{question.prefix} {question.question} {!viewAnswers ? '' : selected[question.id] === question.answer ? '✅' : '❌'}</h2>
+              <h2>{!viewAnswers ? '' : selected[question.id] === question.answer ? '✅' : '❌'} {question.prefix} {question.question}</h2>
               {question.options.map((option) => (
                 <div key={`q-${question.id}-o-${option.id}`} className="mt-2 flex gap-2">
                   <input
@@ -71,9 +79,9 @@ const Home: NextPage<QuizPageProps> = ({ params }) => {
           )
         })}
       </div>
-      <div>
+      <div className="w-full flex justify-end mt-10">
         <button
-          className="bg-zinc-700 px-4 py-2 rounded-lg hover:bg-zinc-800 transition-all mt-10"
+          className="bg-zinc-700 px-4 py-2 rounded-lg hover:bg-zinc-800 transition-all"
           onClick={() => setViewAnswers(oldViewAnswers => !oldViewAnswers)}
         >
           Check answers
