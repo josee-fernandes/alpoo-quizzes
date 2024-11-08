@@ -54,10 +54,7 @@ const Home: NextPage<QuizPageProps> = ({ params }) => {
         </button>
       </div>
       <div className="grid grid-cols-2 gap-10">
-        {quiz.questions.map((question) => {
-          console.log({ selected, question })
-
-          return (
+        {quiz.questions.map((question) => (
             <div key={`q-${id}-q-${question.id}`} className="mt-10">
               <h2>{!viewAnswers ? '' : selected[question.id] === question.answer ? '✅' : '❌'} {question.prefix} {question.question}</h2>
               {question.options.map((option) => (
@@ -77,7 +74,7 @@ const Home: NextPage<QuizPageProps> = ({ params }) => {
               ))}
             </div>
           )
-        })}
+        )}
       </div>
       <div className="w-full flex justify-end mt-10">
         <button
