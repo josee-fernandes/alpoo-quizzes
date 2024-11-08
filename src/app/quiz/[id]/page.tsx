@@ -28,17 +28,19 @@ const Home: NextPage<QuizPageProps> = ({ params }) => {
   return (
     <div className="max-w-[1200px] w-[90%] mx-auto py-10"> 
       <h1 className="text-2xl font-bold">{quiz.title}</h1>
-      {quiz.questions.map((question) => (
-        <div key={`q-${question.id}`} className="mt-10">
-          <h2>{question.prefix} {question.question} {!viewAnswers ? '' : selected === question.answer ? '✅' : '❌'}</h2>
-          {question.options.map((option) => (
-            <div key={`q-${question.id}-o-${option.id}`} className="mt-2 flex gap-2">
-              <input type="radio" name={`q-${question.id}`} value={option.prefix} onChange={event => setSelected(event.target.value)} />
-              <label>{option.prefix}) {option.answer}</label>
-            </div>
-          ))}
-        </div>
-      ))}
+      <div className="grid grid-cols-2 gap-10">
+        {quiz.questions.map((question) => (
+          <div key={`q-${id}-q-${question.id}`} className="mt-10">
+            <h2>{question.prefix} {question.question} {!viewAnswers ? '' : selected === question.answer ? '✅' : '❌'}</h2>
+            {question.options.map((option) => (
+              <div key={`q-${question.id}-o-${option.id}`} className="mt-2 flex gap-2">
+                <input type="radio" name={`q-${question.id}`} value={option.prefix} onChange={event => setSelected(event.target.value)} />
+                <label>{option.prefix}) {option.answer}</label>
+              </div>
+            ))}
+          </div>
+        ))}
+      </div>
       <div>
         <button
           className="bg-zinc-700 px-4 py-2 rounded-lg hover:bg-zinc-800 transition-all mt-10"
