@@ -44,10 +44,10 @@ const Home: NextPage<QuizPageProps> = ({ params }) => {
 
   return (
     <div className="max-w-[1200px] w-[90%] mx-auto py-10"> 
-      <div className="w-full flex justify-between">
+      <div className="w-full flex justify-between items-center gap-4">
         <h1 className="text-2xl font-bold">{quiz.title}</h1>
         <button
-          className="bg-zinc-700 px-4 py-2 rounded-lg hover:bg-zinc-800 transition-all"
+          className="bg-zinc-700 px-4 py-2 rounded-lg hover:bg-zinc-800 transition-all max-w-[142px] w-full"
           onClick={() => setViewAnswers(oldViewAnswers => !oldViewAnswers)}
         >
           Check answers
@@ -81,7 +81,7 @@ const Home: NextPage<QuizPageProps> = ({ params }) => {
       </div>
       <div className="w-full flex justify-end mt-10">
         <button
-          className="bg-zinc-700 px-4 py-2 rounded-lg hover:bg-zinc-800 transition-all"
+          className="bg-zinc-700 px-4 py-2 rounded-lg hover:bg-zinc-800 transition-all max-w-[142px] w-full"
           onClick={() => setViewAnswers(oldViewAnswers => !oldViewAnswers)}
         >
           Check answers
